@@ -1,72 +1,22 @@
-<?php
-include 'Item.php';
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script
+          src="https://code.jquery.com/jquery-3.6.0.slim.js"
+          integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
+          crossorigin="anonymous">
 
-// создание экземпляра класса
-$item = new Item(11);
-echo '<hr>';
-
-// получение свойств
-echo "Получение приватных свойств объекта: <br>";
-echo "ID: $item->id<br>";
-echo "Name: $item->name<br>";
-echo "Status: $item->status<br> ";
-
-// попытка получить несуществующее свойство:
-echo $item->inexistent;
-
-echo '<hr>';
-
-// задание свойств
-echo "Задание свойств объекта:  <br>";
-
-// меняем status
-$item->status = 555;
-echo $item->status . '<br><br>  ';
-
-// id не должен меняться!
-$item->id = 333;
-echo $item->id . '<br><br>  ';
-
-// задание значения не того типа данных
-$item->name = 444;
-echo $item->name . '<br><br>  ';
-
-// сохраняем данные объекта в "БД"
-echo $item->save();
-
-echo '<hr>';
+  </script>
+  <title>Document</title>
+</head>
+<body>
+<?php include 'classTesting.php' ?>
 
 
-
-//Проверка сохраненных данных!
-$newItem = new Item(11);
-// получение свойств
-echo "Получение приватных свойств объекта: <br>";
-echo "ID: $item->id<br>";
-echo "Name: $item->name<br>";
-echo "Status: $item->status<br> ";
-
-// сохранение неизмененных данных
-echo '<br>';
-$newItem->save();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-//$a = '';
-//var_dump(empty($a), isset($a), is_null($a));
-//var_dump(empty($b), isset($b), is_null($b));
-//
+<script src="script.js"></script>
+</body>
+</html>

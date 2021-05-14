@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * класс Item
+ *
+ * @author Вогусов А.А. vogusov@gmail.com
+ * @version 1.0
+ */
 
 final class Item
 {
