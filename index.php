@@ -18,8 +18,18 @@ echo '<hr>';
 
 // задание свойств
 echo "Задание свойств объекта:  <br>";
-$item->name = '666';
 
+// меняем status
+$item->status = 222;
+echo $item->status . '<br><br>  ';
+
+// id не должен меняться!
+$item->id = 333;
+echo $item->id . '<br><br>  ';
+
+// задание значения не того типа данных
+$item->name = 444;
+echo $item->name . '<br><br>  ';
 
 
 
