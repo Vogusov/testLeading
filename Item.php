@@ -49,8 +49,8 @@ final class Item
    */
   private function init(): void
   {
-    // получение из БД:
-    // $itemData = Db::getData($this->id);
+    // получение из БД
+    // $itemData = Db::getData($this->id):
     $this->itemData = ["Name_$this->id", 5];
     [$this->name, $this->status] = $this->itemData;
   }
@@ -82,6 +82,7 @@ final class Item
   function __set($propertyName, $value)
   {
     echo "Задание значения недоступному свойству $propertyName!<br>";
+//    echo "Type of prop '$propertyName:' " . gettype($this->$propertyName) . '<br>';
 
     // проверка на существование свойства у объекта
     if (!property_exists($this, $propertyName)) {
@@ -100,18 +101,17 @@ final class Item
       echo("Задаваемое значение не может быть пустым!<br>");
       return;
     }
-//    gettype($this->$propertyName);
+
     // проверка типа вводимого значения
     if(gettype($value) !== gettype($this->$propertyName)) {
       echo "Типы не совпадают";
+      return;
     }
 
-
-
-    echo $this->$propertyName;
+//    echo $this->$propertyName;
     $this->$propertyName = $value;
-    echo $this->$propertyName;
-    echo gettype($this->$propertyName);
+//    echo $this->$propertyName;
+//    echo gettype($this->$propertyName);
   }
 
 //  public function save()
