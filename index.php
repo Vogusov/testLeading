@@ -20,7 +20,7 @@ echo '<hr>';
 echo "Задание свойств объекта:  <br>";
 
 // меняем status
-$item->status = 222;
+$item->status = 555;
 echo $item->status . '<br><br>  ';
 
 // id не должен меняться!
@@ -31,6 +31,24 @@ echo $item->id . '<br><br>  ';
 $item->name = 444;
 echo $item->name . '<br><br>  ';
 
+// сохраняем данные объекта в "БД"
+echo $item->save();
+
+echo '<hr>';
+
+
+
+//Проверка сохраненных данных!
+$newItem = new Item(11);
+// получение свойств
+echo "Получение приватных свойств объекта: <br>";
+echo "ID: $item->id<br>";
+echo "Name: $item->name<br>";
+echo "Status: $item->status<br> ";
+
+// сохранение неизмененных данных
+echo '<br>';
+$newItem->save();
 
 
 

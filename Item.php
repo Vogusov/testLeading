@@ -73,11 +73,12 @@ final class Item
 
   /**
    * Возможность задание свойств объекта, используя magic methods с проверкой
-   * < вводимого значения на заполненность и тип значения. >
+   * вводимого значения на заполненность и тип значения.
    * Свойство ID не поддается записи.
    *
    * @param $propertyName
    * @param $value
+   * @return void
    */
   function __set($propertyName, $value)
   {
@@ -102,18 +103,36 @@ final class Item
     }
 
     // проверка типа вводимого значения
-    if(gettype($value) !== gettype($this->$propertyName)) {
+    if (gettype($value) !== gettype($this->$propertyName)) {
       echo "Типы не совпадают";
       return;
     }
 
     $this->$propertyName = $value;
+    $this->changed = true;
 
   }
 
+  /**
+   *
+   * Метод сохраняет установленные значения name и status в случае,
+   * если свойства объекта были изменены извне.
+   *
+   * @return void
+   */
   public function save()
   {
-    if ()
+    if (!$this->changed) {
+      echo 'Данные не были изменены! Сохранять нечего. <br>';
+      return;
+    }
+
+    // сохраняем в БД, если были изменения ($this->changed === true)
+    // Db::saveToDb($name, $status):
+    $this->itemData = [$this->name, $this->status];
+    $this->changed = false;
+    echo 'Данные сохранены успешно! <br>';
+    return;
   }
 
 
