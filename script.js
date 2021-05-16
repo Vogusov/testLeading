@@ -17,6 +17,7 @@ $(document).ready(function () {
   // обработчик нажатий
   $('body').bind('keydown', (function (event) {
     let keyPressedCode = event.keyCode
+
     switch (keyPressedCode) {
 
       case 37:
