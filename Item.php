@@ -30,7 +30,8 @@ final class Item
   private bool $changed = false;
 
   /**
-   *
+   * Здесь будут храниться данные в сыром виде до сохранения
+   * @var array
    */
   private array $itemData;
 
@@ -56,7 +57,7 @@ final class Item
   private function init(): void
   {
     // получение из БД
-    // $itemData = Db::getData($this->id):
+    // $this->itemData = Db::getData($this->id);
     $this->itemData = ["Name_$this->id", 5];
     [$this->name, $this->status] = $this->itemData;
   }
@@ -108,7 +109,8 @@ final class Item
       return;
     }
 
-    // проверка типа вводимого значения
+    // проверка типа вводимого значения;
+    // в БД значения должны быть not null
     if (gettype($value) !== gettype($this->$propertyName)) {
       echo "Типы не совпадают";
       return;
